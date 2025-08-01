@@ -3,6 +3,8 @@ import { Login } from "../components/Login";
 import { Layout } from "../components/Layout";
 import { Dashboard } from "../components/Dashboard";
 import { FileManager } from "../components/FileManager";
+import { UserManagement } from "../components/UserManagement";
+import { Settings } from "../components/Settings";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 const Index = () => {
@@ -32,8 +34,8 @@ const Index = () => {
           <Route path="/files" element={<FileManager userRole={userRole} />} />
           {userRole === "admin" && (
             <>
-              <Route path="/users" element={<div className="p-6"><h1 className="text-2xl font-bold">User Management</h1><p className="text-muted-foreground">Admin user management interface coming soon...</p></div>} />
-              <Route path="/settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1><p className="text-muted-foreground">System settings interface coming soon...</p></div>} />
+              <Route path="/users" element={<UserManagement />} />
+              <Route path="/settings" element={<Settings />} />
             </>
           )}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
